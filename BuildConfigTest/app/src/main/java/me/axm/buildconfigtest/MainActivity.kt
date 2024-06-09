@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -20,10 +22,25 @@ class MainActivity : ComponentActivity() {
         setContent {
             BuildConfigTestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = BuildConfig.NEW_VAR_FIELD  + "dd dhgjdd",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    Row {
+                        Column {
+
+                            Text(
+                                text = BuildConfig.BASE_URL,
+                                modifier = Modifier.padding(innerPadding)
+                            )
+                        }
+                        Column {
+                            Text(text = "  ")
+                        }
+                        Column {
+
+                            Text(
+                                text = getString(R.string.base_url),
+                                modifier = Modifier.padding(innerPadding)
+                            )
+                        }
+                    }
                 }
             }
         }
