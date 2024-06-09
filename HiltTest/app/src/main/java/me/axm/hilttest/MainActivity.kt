@@ -20,7 +20,8 @@ import me.axm.hilttest.ui.theme.HiltTestTheme
 class MainActivity : ComponentActivity() {
     // viewModels() delegate used to get
     // by view models will automatically construct the viewmodels using Hilt
-    private val viewModel:MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,27 +30,29 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
         }
-    observeAuthCurrency()
+        observeAuthCurrency()
     }
 
     private fun observeAuthCurrency() {
-        viewModel.isAuthenticated.observe(this){isAuthenticated->
-            Log.i("isAuthenticated", isAuthenticated.toString() )
+        viewModel.isAuthenticatedLiveData.observe(this) { isAuthenticated ->
+            Log.i("isAuthenticated", "ddddd " + isAuthenticated.toString())
         }
     }
-
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

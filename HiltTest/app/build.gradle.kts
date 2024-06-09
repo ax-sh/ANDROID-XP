@@ -76,4 +76,5 @@ dependencies {
 // Allow references to generated code
 kapt {
     correctErrorTypes = true
+    mapDiagnosticLocations = true
 }
