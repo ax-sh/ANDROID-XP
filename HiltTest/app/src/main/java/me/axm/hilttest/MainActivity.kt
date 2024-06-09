@@ -1,4 +1,4 @@
-package me.axm.splashscreentest
+package me.axm.hilttest
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,17 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import me.axm.splashscreentest.ui.theme.SplashScreenTestTheme
+import me.axm.hilttest.ui.theme.HiltTestTheme
 
 class MainActivity : ComponentActivity() {
-    val viewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SplashScreenTestTheme {
+            HiltTestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -44,7 +41,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    SplashScreenTestTheme {
+    HiltTestTheme {
         Greeting("Android")
     }
 }

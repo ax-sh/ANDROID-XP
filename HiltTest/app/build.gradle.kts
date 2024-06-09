@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "me.axm.splashscreentest"
+    namespace = "me.axm.hilttest"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "me.axm.splashscreentest"
+        applicationId = "me.axm.hilttest"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -66,7 +66,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-// add Splash screen
-    implementation( libs.androidx.core.splashscreen)
 }
