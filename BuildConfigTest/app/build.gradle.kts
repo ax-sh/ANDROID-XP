@@ -7,6 +7,10 @@ android {
     namespace = "me.axm.buildconfigtest"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "me.axm.buildconfigtest"
         minSdk = 29
@@ -18,6 +22,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        extra["NEW_VAR"] = "some_value"
+        val baseUrl ="dff"
+
+        buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
+        resValue("string", "base_url", baseUrl)
+
     }
 
     buildTypes {

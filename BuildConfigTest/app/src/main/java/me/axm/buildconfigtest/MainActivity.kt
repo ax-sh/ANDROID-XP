@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             BuildConfigTestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = BuildConfig.NEW_VAR_FIELD  + "dd dhgjdd",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
