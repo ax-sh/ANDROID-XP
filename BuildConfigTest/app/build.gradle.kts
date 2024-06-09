@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
+// NOTE this works
+println("Building project")
+logger.info("I am an {} log message", "info")
 
 android {
     namespace = "me.axm.buildconfigtest"
@@ -22,12 +25,15 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        extra["NEW_VAR"] = "some_value"
-        val baseUrl ="dff"
+
+        //   API_URL is a property form     gradle.properties
+        //        # CUSTOM PROPERTY ADDED
+        //        API_URL=MOOOO
+
+        val baseUrl = project.findProperty("API_URL") as? String ?: "https://default.example.com"
 
         buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
         resValue("string", "base_url", baseUrl)
-
     }
 
     buildTypes {
@@ -35,7 +41,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
