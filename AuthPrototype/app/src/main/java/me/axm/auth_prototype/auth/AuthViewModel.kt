@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,7 +18,7 @@ class AuthViewModel
     constructor(
         private val repository: AuthRepository,
     ) : ViewModel() {
-        var state by mutableStateOf(AuthState())
+         var state by mutableStateOf(AuthState())
 
         private val resultChannel = Channel<AuthResult<Unit>>()
         val authResults = resultChannel.receiveAsFlow()
@@ -27,6 +28,7 @@ class AuthViewModel
         }
 
         private fun authenticate() {
+            Timber.tag("auth view model")
             viewModelScope.launch {
                 state = state.copy(isLoading = true)
                 val result = repository.authenticate()

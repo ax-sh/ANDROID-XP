@@ -1,10 +1,11 @@
-package me.axm.auth_prototype
+package me.axm.auth_prototype.auth
 
 import android.accounts.Account
 import android.accounts.AccountManager
 import android.app.Activity
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import me.axm.auth_prototype.BuildConfig
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton

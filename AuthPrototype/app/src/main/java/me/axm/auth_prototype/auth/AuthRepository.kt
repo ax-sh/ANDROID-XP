@@ -2,7 +2,6 @@ package me.axm.auth_prototype.auth
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import me.axm.auth_prototype.SessionManager
 import net.openid.appauth.AuthorizationService
 import timber.log.Timber
 import javax.inject.Inject
