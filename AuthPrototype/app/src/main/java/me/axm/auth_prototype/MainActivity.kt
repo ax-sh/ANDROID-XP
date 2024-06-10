@@ -13,11 +13,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import me.axm.auth_prototype.auth.AuthViewModel
 import me.axm.auth_prototype.ui.theme.AuthPrototypeTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val viewModel: AuthViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,19 +28,23 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
         }
+//        Add logic for livedata
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

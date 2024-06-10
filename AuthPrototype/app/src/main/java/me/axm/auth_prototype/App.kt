@@ -1,8 +1,7 @@
-package me.axm.auth_prototype;
+package me.axm.auth_prototype
 
-import android.app.Application;
-
-import dagger.hilt.android.HiltAndroidApp;
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
