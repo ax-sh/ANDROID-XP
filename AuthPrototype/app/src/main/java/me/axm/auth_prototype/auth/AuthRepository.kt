@@ -18,7 +18,7 @@ class AuthRepository
             return try {
                 val token = session.fetchAuthToken() ?: return AuthResult.Unauthorized()
                 Timber.tag("oauth auth token repo").d("token $token")
-                return AuthResult.Authorized()
+                return AuthResult.UnknownError()
             } catch (e: Exception) {
                 AuthResult.UnknownError()
             }
