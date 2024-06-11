@@ -12,22 +12,30 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import javax.inject.Singleton
 
+class Moo {}
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    @Provides
-    @Singleton
-    fun provideAuthApi(): AuthApi {
-        return Retrofit.Builder()
-            .baseUrl("http://192.168.0.2:8080/")
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
-            .create()
-    }
 
     @Provides
     @Singleton
-    fun provideAuthRepository(api: AuthApi): ARepository {
-        return ARepositoryImpl(api)
+    fun provideMoo(): Moo {
+        return Moo()
     }
+//    @Provides
+//    @Singleton
+//    fun provideAuthApi(): AuthApi {
+//        return Retrofit.Builder()
+//            .baseUrl("http://192.168.0.2:8080/")
+//            .addConverterFactory(MoshiConverterFactory.create())
+//            .build()
+//            .create()
+//    }
+//
+//    @Provides
+//    @Singleton
+//    fun provideAuthRepository(api: AuthApi): ARepository {
+//        return ARepositoryImpl(api)
+//    }
 }
