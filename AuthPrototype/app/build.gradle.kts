@@ -80,8 +80,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+//    Check latest version here https://dagger.dev/hilt/gradle-setup
     //    HILT
-    val hiltVer = 2.44
+    val hiltVer = "2.51.1"
 
     implementation("com.google.dagger:hilt-android:$hiltVer")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVer")
@@ -89,8 +90,8 @@ dependencies {
     implementation("net.openid:appauth:0.11.1")
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 }
 
 // Allow references to generated code
