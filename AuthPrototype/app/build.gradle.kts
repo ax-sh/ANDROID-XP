@@ -87,6 +87,10 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hiltVer")
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("net.openid:appauth:0.11.1")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
 }
 
 // Allow references to generated code
