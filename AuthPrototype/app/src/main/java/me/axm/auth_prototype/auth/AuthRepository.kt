@@ -15,11 +15,10 @@ class AuthRepository
         private val authService: AuthorizationService = AuthorizationService(appContext)
 
         suspend fun authenticate(): AuthResult<Unit> {
-            Timber.tag("authenticate").i("gooooo")
             return try {
                 val token = session.fetchAuthToken() ?: return AuthResult.Unauthorized()
-                Timber.tag("auth token repo").d("token $token")
-                return AuthResult.UnknownError()
+                Timber.tag("oauth auth token repo").d("token $token")
+                return AuthResult.Authorized()
             } catch (e: Exception) {
                 AuthResult.UnknownError()
             }
