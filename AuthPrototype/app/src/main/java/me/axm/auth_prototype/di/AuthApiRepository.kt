@@ -5,9 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface AuthApiRepository {
-    suspend fun user(id: String): String
-
-    suspend fun authenticate(): AuthResult<Unit>
+//    @GET("authenticate")
+//    suspend fun user(@Header("Authorization") token: String): String
+//
+//    suspend fun authenticate(): AuthResult<Unit>
 
     //    https://zenquotes.io/api/today
     @GET("today")

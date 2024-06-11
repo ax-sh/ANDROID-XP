@@ -1,4 +1,4 @@
-package me.axm.auth_prototype
+package me.axm.auth_prototype.auth
 
 import retrofit2.http.Body
 import retrofit2.http.GET
