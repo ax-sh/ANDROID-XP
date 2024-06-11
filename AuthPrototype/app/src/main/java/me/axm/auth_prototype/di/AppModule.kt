@@ -1,10 +1,12 @@
-package me.axm.auth_prototype
+package me.axm.auth_prototype.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.axm.auth_prototype.auth.AuthRepository
+import me.axm.auth_prototype.ARepository
+import me.axm.auth_prototype.ARepositoryImpl
+import me.axm.auth_prototype.AuthApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -25,7 +27,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepository(api: AuthApi, prefs: SharedPreferences): AuthRepository {
-        return AuthRepositoryImpl(api, prefs)
+    fun provideAuthRepository(api: AuthApi): ARepository {
+        return ARepositoryImpl(api)
     }
 }

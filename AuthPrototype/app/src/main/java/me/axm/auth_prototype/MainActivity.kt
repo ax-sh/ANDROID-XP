@@ -1,6 +1,7 @@
 package me.axm.auth_prototype
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -45,6 +47,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun auth() {
+        val context = this
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.authResults.collect { result ->
@@ -56,10 +59,21 @@ class MainActivity : ComponentActivity() {
 
                         is AuthResult.UnknownError -> {
                             Timber.tag("authResults oauth").i("UnknownError")
-                            // Handle authentication error, e.g., show an error message
+                            Toast.makeText(
+                                context,
+                                "An unknown error occurred",
+                                Toast.LENGTH_LONG
+                            ).show()
+
                         }
                         // Handle other possible states as needed
-                        is AuthResult.Unauthorized -> TODO()
+                        is AuthResult.Unauthorized -> {
+                            Toast.makeText(
+                                context,
+                                "You're not authorized",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
                     }
                 }
             }
