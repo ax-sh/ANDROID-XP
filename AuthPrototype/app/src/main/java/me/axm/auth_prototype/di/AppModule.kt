@@ -10,7 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import javax.inject.Singleton
 
-class Moo {}
+class Moo
 
 @Module
 @InstallIn(SingletonComponent::class)

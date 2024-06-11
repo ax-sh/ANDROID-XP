@@ -1,9 +1,6 @@
 package me.axm.auth_prototype.di
 
 import me.axm.auth_prototype.auth.AuthApi
-import me.axm.auth_prototype.auth.AuthResult
-import retrofit2.HttpException
-import timber.log.Timber
 
 class AuthApiRepositoryImpl(private val api: AuthApi) : AuthApiRepository {
 //    override suspend fun user(): String {
@@ -11,7 +8,7 @@ class AuthApiRepositoryImpl(private val api: AuthApi) : AuthApiRepository {
 //    }
 
     override suspend fun getQuoteOfTheDay(): String {
-       return api.getQuoteOfTheDay()
+        return api.getQuoteOfTheDay()
     }
 
 //    override suspend fun authenticate(): AuthResult<Unit> {

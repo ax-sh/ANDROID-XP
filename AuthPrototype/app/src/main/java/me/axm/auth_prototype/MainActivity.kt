@@ -12,13 +12,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.launch
 import me.axm.auth_prototype.auth.AuthResult
 import me.axm.auth_prototype.auth.AuthViewModel
@@ -42,7 +40,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-//        Add logic for livedata
+        // Add logic for livedata
         auth()
     }
 
@@ -62,16 +60,15 @@ class MainActivity : ComponentActivity() {
                             Toast.makeText(
                                 context,
                                 "An unknown error occurred",
-                                Toast.LENGTH_LONG
+                                Toast.LENGTH_LONG,
                             ).show()
-
                         }
                         // Handle other possible states as needed
                         is AuthResult.Unauthorized -> {
                             Toast.makeText(
                                 context,
                                 "You're not authorized",
-                                Toast.LENGTH_LONG
+                                Toast.LENGTH_LONG,
                             ).show()
                         }
                     }

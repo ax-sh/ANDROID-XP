@@ -18,7 +18,7 @@ class AuthViewModel
     constructor(
         private val repository: AuthRepository,
     ) : ViewModel() {
-         var state by mutableStateOf(AuthState())
+        var state by mutableStateOf(AuthState())
 
         private val resultChannel = Channel<AuthResult<Unit>>()
         val authResults = resultChannel.receiveAsFlow()

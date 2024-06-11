@@ -1,8 +1,6 @@
 package me.axm.auth_prototype.di
 
-import me.axm.auth_prototype.auth.AuthResult
 import retrofit2.http.GET
-import retrofit2.http.Header
 
 interface AuthApiRepository {
 //    @GET("authenticate")
@@ -14,4 +12,3 @@ interface AuthApiRepository {
     @GET("today")
     suspend fun getQuoteOfTheDay(): String
 }
-

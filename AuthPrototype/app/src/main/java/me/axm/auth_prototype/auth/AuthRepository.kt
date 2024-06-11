@@ -8,25 +8,25 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class AuthRepository
-@Inject
-constructor(
-    private val session: SessionManager,
-    @ApplicationContext private val appContext: Context,
-    private val api: AuthApiRepository
-) {
-    private val authService: AuthorizationService = AuthorizationService(appContext)
+    @Inject
+    constructor(
+        private val session: SessionManager,
+        private val api: AuthApiRepository,
+        @ApplicationContext private val appContext: Context,
+    ) {
+        private val authService: AuthorizationService = AuthorizationService(appContext)
 
-    suspend fun authenticate(): AuthResult<Unit> {
-        val logger = Timber.tag("AuthRepository")
-        return try {
-            val token = session.fetchAuthToken() ?: return AuthResult.Unauthorized()
-            val response = api.getQuoteOfTheDay()
-            logger.i("fuuuuu")
+        suspend fun authenticate(): AuthResult<Unit> {
+            val logger = Timber.tag("AuthRepository")
+            return try {
+                val token = session.fetchAuthToken() ?: return AuthResult.Unauthorized()
+                val response = api.getQuoteOfTheDay()
+                logger.i("fuuuuu")
 
-            Timber.tag("AuthRepository oauth auth token repo").d("token $token")
-            return AuthResult.UnknownError()
-        } catch (e: Exception) {
-            AuthResult.UnknownError()
+                Timber.tag("AuthRepository oauth auth token repo").d("token $token")
+                return AuthResult.UnknownError()
+            } catch (e: Exception) {
+                AuthResult.UnknownError()
+            }
         }
     }
-}
