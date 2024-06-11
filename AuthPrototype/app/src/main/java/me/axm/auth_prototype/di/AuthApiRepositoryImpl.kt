@@ -1,12 +1,18 @@
-package me.axm.auth_prototype
+package me.axm.auth_prototype.di
 
-import android.content.SharedPreferences
+import me.axm.auth_prototype.AuthApi
 import me.axm.auth_prototype.auth.AuthResult
 import retrofit2.HttpException
 
-class ARepositoryImpl(
-    private val api: AuthApi
-) : ARepository {
+class AuthApiRepositoryImpl(private val api: AuthApi) : AuthApiRepository {
+    override suspend fun user(id: String): String {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getQuoteOfTheDay(): String {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun authenticate(): AuthResult<Unit> {
         return try {
             api.authenticate("Bearer")
