@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AuthPrototype"
+rootProject.name = "Auth-Prototype"
 include(":app")
+ 
